@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer, util
 import torch
+import os
 
 # บังคับใช้ CPU แทน MPS เพื่อหลีกเลี่ยง tensor conversion error
 device = "cpu"
@@ -13,7 +14,9 @@ model = SentenceTransformer(
 )
 
 # Load data
-df = pd.read_csv("hangout_info.csv")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(current_dir, "hangout_info.csv")
+df = pd.read_csv(csv_path)
 
 # Corpus definitions
 question_greeting_corpus = [
