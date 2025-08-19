@@ -13,7 +13,7 @@ model = SentenceTransformer(
 )
 
 # Load data
-df = pd.read_csv("hangout_info.csv")
+df = pd.read_csv("data/hangout_info.csv")
 
 # Corpus definitions
 question_greeting_corpus = [
