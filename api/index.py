@@ -12,9 +12,9 @@ import json
 import os
 import sys
 
-# เพิ่มพาธสำหรับ import logical_simple.py
+# เพิ่มพาธสำหรับ import logical.py
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from logical_simple import chat_answer
+from logical import chat_answer
 
 app = Flask(__name__)
 
