@@ -9,7 +9,6 @@ from linebot.v3.messaging import (
 from linebot.v3.webhook import WebhookHandler
 from linebot.v3.exceptions import InvalidSignatureError
 from dotenv import load_dotenv
-from pyngrok import ngrok
 import json
 import os
 from logical import chat_answer
@@ -96,17 +95,8 @@ def linebot():
 if __name__ == "__main__":
     try:
         print("🚀 เริ่มต้น LINE ChatBot...")
-
-        # เปิด ngrok tunnel
-        public_url = ngrok.connect(3000)
-        print(f"🌐 Ngrok URL: {public_url}")
-        print("📋 คัดลอก URL ข้างต้นไปใส่ใน LINE Developer Console (Webhook URL)")
-        print("📍 กด Verify และ Use webhook ใน LINE Console")
-        print("-" * 60)
-
-        # รัน Flask app
-        app.run(host="0.0.0.0", port=3000, debug=False)
-
+        port = int(os.environ.get("PORT", 10000))
+        app.run(host="0.0.0.0", port=port, debug=False)
     except KeyboardInterrupt:
         print("\n👋 หยุดทำงาน")
     except Exception as e:
