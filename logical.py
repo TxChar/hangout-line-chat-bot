@@ -8,9 +8,7 @@ device = "cpu"
 if torch.cuda.is_available():
     device = "cuda"
 
-model = SentenceTransformer(
-    "sentence-transformers/distiluse-base-multilingual-cased-v2", device=device
-)
+model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2", device=device)
 
 # Load data
 df = pd.read_csv("data/hangout_info.csv")
